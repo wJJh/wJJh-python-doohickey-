@@ -8,7 +8,7 @@ class moveFile():
     def __init__(self):
         self.Path = os.listdir(".")  # 遍历当前目录所有文件
         self.Dir = [i for i in self.Path if os.path.isdir(i)]  # 收集文件夹
-        self.File = [i.split(".") for i in self.Path if os.path.isfile(i)]  # 文件
+        self.File = [i.rsplit(".",1) for i in self.Path if os.path.isfile(i)]  # 文件
         self.Format = {i.split(".", -1)[-1] for i in self.Path if os.path.isfile(i)}  # 收集格式
         self.dirCreate1 = ['代码', '视频', '音乐', '文档', '图片', '压缩包']  # 简易模式所创建的文件夹
         moveFile.main(self)
